@@ -1,0 +1,31 @@
+$("#submit").click(()=>{
+	if($("#name").val()&&$("#pwd").val()){
+		$.ajax({
+		type:'post',
+		url:'/shuaige.mp3',
+		data:{
+			name:$("#name").val(),
+			pwd:$("#pwd").val(),
+			purpose:'query',
+			anopur:1
+		}
+		}).then(data=>{
+		console.log(!data.length)
+		if(data.length){
+			$("#cover").fadeIn(10)
+			$("#tishi").fadeIn(500)
+			let num=4;
+			setInterval(()=>$("#tishi span").html(num--),1000)
+			setTimeout(()=>location.replace('index.html'),5000)
+        }else{
+        	$("#error").finish().fadeOut(10).html('账号和密码不匹配，请重新输入!').fadeIn(100)
+        	$("#submit").attr('disabled','disabled')
+		    setTimeout(()=>
+		    {$("#submit").removeAttr('disabled')
+		    },1000)
+        }})
+	}else{
+		console.log()
+		$("#error").html('用户名或密码不能为空').fadeIn(100)
+	}
+})

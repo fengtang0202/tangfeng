@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+    <link rel="stylesheet" href="css/login.css">
+    <title>注册界面</title>
+</head>
+<body>
+<header>
+    <a href="index.html"><img src="image/reg.jpg" alt=""></a>
+    <span><i class="iconfont icon-jinkou"></i>帮助中心<i class="iconfont icon-chevron-copy-copy-copy-copy-copy"></i></span>
+    <span><a href="login.html">请登录</a></span>
+    <span>你好，欢迎登陆一号店！</span>
+</header>
+<div id="banner">
+    <div>1号店注册</div>
+    <div class='dingwei'><input  id='user' name="username" type="text" maxlength="20" placeholder="用户名">
+    <i class="iconfont icon-tubiaolunkuohua41"></i></div>
+    <div class='dingwei'><input id='tel' name="tel" type="text" maxlength="15" placeholder="手机号">
+    <i class="iconfont icon-tubiaolunkuohua41"></i></div>
+    <div class='dingwei'>
+    	<input id='check' type="text" maxlength="20" placeholder="邮箱号">
+    	<span>@</span>
+    	<select name="" id="select">
+    		<option value="163.com">163.com</option>
+    		<option value="yahoo.com.cn">yahoo.com.cn</option>
+    		<option value="qq.com">qq.com</option>
+    		<option value="sina.cn">sina.cn</option>
+    		<option value="yahoo.com">yahoo.com</option>
+    		<option value="gmail.com<">gmail.com</option>
+    		<option value="mail.com">mail.com</option>
+    		<option value="21cn.com<">21cn.com</option>
+    		<option value="126.com">126.com</option>
+    	</select>
+    	<i class="iconfont icon-tubiaolunkuohua41"></i></div>
+    <div class='dingwei'><input id='pwd1' name="pwd" type="password" maxlength="20" placeholder="设置密码">
+    <i class="iconfont icon-tubiaolunkuohua41"></i></div>
+    <div class='dingwei'><input id='pwd2' type="password" maxlength="20" placeholder="确认密码">
+    <i class="iconfont icon-tubiaolunkuohua41"></i></div>
+    <div>点击注册，表示同意1号店<a href="">《服务协议》</a></div>
+    <div><input type="button" id='submit' value='同意协议并注册' style='text-indent: 0;'></div>
+    <div id='label'>
+    <div><label for="user">用户名</label></div>
+    <div><label for="tel">手机号</label></div>
+    <div><label for="check">邮箱号</label></div>
+    <div><label for="pwd1">设置密码</label></div>
+    <div><label for="pwd2">确认密码</label></div>
+    </div>
+    <div id="prompt">
+        <div><p>6-20位字符，可由英文，数字或符号'_'组成</p></div>
+        <div><p>请输入注册手机号</p></div>
+        <div><p>请输入注册邮箱</p></div>
+        <div><p>10-20个大小写英文，符号或者数字的组合</p></div>
+        <div><p>请再次输入密码</p></div>
+        <div><p>请按要求填写所有信息之后再进行提交</p></div>
+    </div>
+</div>
+<footer>
+<div>沪ICP备16050468号 | 沪B2-20170039 | 营业执照</div>
+<div>Copyright&copy1号店网上超市2017-2017,All Right Reserved</div>
+</footer>
+<div id='cover'></div>
+<div id='tishi' style="background:rgba(120,120,120,0.5);">
+	<p><i class="iconfont icon-tubiaolunkuohua41"></i>注册成功</p>
+	<div><span id='num'>5</span>秒后自动跳转至登录界面</div>
+</div>
+<script src='js/jquery.min.js'></script>
+<script src='js/reg.js'></script>
+</body>
+</html>

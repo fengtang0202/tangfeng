@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一号店</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="font/iconfont.css">
+</head>
+<body>
+<header>
+    <div>
+        <img id="sm" src="image/adsmall.jpg" alt="">
+        <a href=""><img id="lg" src="image/ad.jpg" alt=""></a>
+    </div>
+    <p></p>
+</header>
+<nav>
+    <div>
+        <i id="dingwei" class="iconfont icon-dingwei2"></i>
+        <div id="cover">送货地址 : 杭州市 <span id="line"></span></div>
+        <div id="location">
+            <div id="chacha"></div>
+            <div id="niubi"><i class="iconfont icon-fangdajing"></i>搜索城市：<input type="text" id="city" placeholder="请输入城市名称" maxlength="10" v-on:input="change" v-on:keyup.8="change">
+                <div id="tishi" >
+                    <p v-for="(item,index) in arr" >{{item}}</p>
+                </div>
+            </div>
+            <div id="hotcity"><p>热门城市 :</p>
+                <ul>
+                    <li>上海市</li>
+                    <li>北京市</li>
+                    <li>广州市</li>
+                    <li>深圳市</li>
+                    <li>南京市</li>
+                    <li>杭州市</li>
+                    <li>武汉市</li>
+                    <li>成都市</li>
+                    <li>重庆市</li>
+                    <li>苏州市</li>
+                    <li>天津市</li>
+                    <li>合肥市</li>
+                    <li>温州市</li>
+                    <li>无锡市</li>
+                    <li>常州市</li>
+                    <li>宁波市</li>
+                </ul>
+            </div>
+            <div id="search">
+                <p>按字母查找</p>
+                <ul>
+                    <li v-for="(item,index) in letter">{{item}}</li>
+                </ul>
+            </div>
+           <div id="zone">
+            <ul>
+                <li v-for="(item,index) in city" class="floor" style='position: relative;' >
+                    <span>{{item.letter}}</span>
+                    <ul v-bind:id="item.letter">
+                        <li v-for="(item,index) in city[index]">{{item}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </div>
+        <span>网站导航<i class="logo"></i></span>
+        <span>客户服务<i class="logo"></i></span>
+        <span>充值中心<i class="logo"></i></span>
+        <span>我的订单</span>
+        <span id="reg"><a href="reg.html">注册</a></span>
+        <span id="log"><a href="login.html">Hi,请登录</a></span>
+    </div>
+</nav>
+<section>
+    <div id="content">
+        <aside><img src="image/logo.png" alt=""></aside>
+        <div id="part">
+            <input type="text" placeholder="开奶季奶粉最高可减110"><span><i class="iconfont icon-search2"></i></span>
+            <p><i class="iconfont icon-gouwuchekong"></i><span>购物车</span></p>
+            <p><i class="iconfont icon-xiaochanmao"></i><span>您的购物车还是空空的哦~~</span></p>
+            <ul>
+                <li><a href="">面包</a></li>
+                <li><a href="">香皂</a></li>
+                <li><a href="">三只松鼠</a></li>
+                <li><a href="">冰箱</a></li>
+                <li><a href="">滴露</a></li>
+                <li><a href="">生抽</a></li>
+                <li><a href="">苏菲</a></li>
+                <li><a href="">维他</a></li>
+                <li><a href="">纸</a></li>
+                <li><a href="">面粉</a></li>
+            </ul>
+            <ul>
+                <li><a href="">1号抢购</a></li>
+                <li><a href="">1号团</a></li>
+                <li><a href="">领券中心</a></li>
+                <li><a href="">商城优选</a></li>
+                <li><a href="">全球进口</a></li>
+                <li><a href="">1号生鲜</a></li>
+                <li><a href="">美妆馆</a></li>
+                <li><a href="">家居馆</a></li>
+                <li><a href="">电器城</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<div id="banner">
+    <div id="rest"></div>
+    <ul id="select">
+        <li><i class="iconfont icon-jinkou"></i>全球进口</li>
+        <li><i class="iconfont icon-shipin"></i>食品/酒饮/生鲜</li>
+        <li><i class="iconfont icon-muying"></i>母婴/玩具/童装</li>
+        <li><i class="iconfont icon-zhijin"></i>纸巾/清洁用品</li>
+        <li><i class="iconfont icon-jiaju"></i>家居/家纺/家装/宠物</li>
+        <li><i class="iconfont icon-meizhuang"></i>美妆个人清洁/洗护</li>
+        <li><i class="iconfont icon-nvzhuang"></i>女装/男装/内衣/珠宝</li>
+        <li><i class="iconfont icon-xiangbao"></i>鞋靴/箱包/运动户外</li>
+        <li><i class="iconfont icon-mobile"></i>手机/数码/电脑办公</li>
+        <li><i class="iconfont icon-dianqi"></i>家用电器/汽车用品</li>
+        <li><i class="iconfont icon-weibiaoti101"></i>医药/保健滋补/成人</li>
+        <li><i class="iconfont icon-lvxing"></i>旅行/票劵/生活/图书</li>
+    </ul>
+    <div id="carousel">
+        <a href=""><img src="image/banner1.jpg" alt=""></a>
+        <a href=""><img src="image/banner2.jpg" alt=""></a>
+        <a href=""><img src="image/banner3.jpg" alt=""></a>
+        <a href=""><img src="image/banner4.jpg" alt=""></a>
+        <a href=""><img src="image/banner5.jpg" alt=""></a>
+        <a href=""><img src="image/banner6.jpg" alt=""></a>
+        <a href=""><img src="image/banner7.jpg" alt=""></a>
+        <a href=""><img src="image/banner8.jpg" alt=""></a>
+        <a href=""><img src="image/banner9.jpg" alt=""></a>
+        <div class="direction"><i class="iconfont icon-arrow-right-copy"></i></div>
+        <div class="direction"><i class="iconfont icon-arrow-right-copy"></i></div>
+        <ul id="xiamian">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul id="fugai">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="display">
+	<ul>
+        <li>乳品生鲜 ><a href="">牛奶</a><a href="">成人奶粉</a><a href="">酸奶粉</a><a href="">豆奶奶酪</a><a href="">黄油/奶油</a><a href="">低温鲜奶酸奶</a><a href="">水果</a><a href="">肉类</a><a href="">海鲜</a></li>
+        <li>饼干糕点 ><a href="">饼干</a><a href="">曲奇</a><a href="">威化夹心</a><a href="">饼干</a><a href="">苏打饼干</a><a href="">传统糕点</a><a href="">西式糕点</a><a href="">面包干</a><a href="">饼干礼盒</a></li>
+        <li>酒水饮料 ><a href="">葡萄酒</a><a href="">啤酒</a><a href="">洋酒</a><a href="">起泡酒水</a><a href="">碳酸饮料</a><a href="">果蔬汁</a><a href="">咖啡</a><a href="">果味饮料</a><a href="">含乳饮料</a><a href="">茶饮料</a><a href="">功能饮料</a></li>
+        <li>休闲食品 ><a href="">坚果果干</a><a href="">海苔</a><a href="">膨化</a><a href="">巧克力</a><a href="">糖果</a><a href="">果冻/布丁</a><a href="">肉干肉脯</a><a href="">海味零食</a></li>
+        <li>粮油调味 ><a href="">食用油</a><a href="">橄榄油</a><a href="">大米</a><a href="">意面</a><a href="">烘焙面食</a><a href="">方便面</a><a href="">罐头</a><a href="">火腿肠</a><a href="">速食汤</a><a href="">米饭/粥</a><a href="">厨房调味</a></li>
+        <li>茶冲咖啡 ><a href="">速溶咖啡</a><a href="">咖啡豆/粉</a><a href="">咖啡伴侣</a><a href="">早餐谷物</a><a href="">柚子茶</a><a href="">可可粉</a><a href="">蜂蜜</a><a href="">天然粉</a><a href="">奶茶粉</a><a href="">豆奶粉</a><a href="">茶叶/茶包</a></li>
+        <li>母婴玩具 ><a href="">奶粉</a><a href="">婴幼儿食品</a><a href="">尿裤</a><a href="">湿巾</a><a href="">营养品</a><a href="">洗护清洁</a><a href="">哺育喂养</a><a href="">孕妈</a><a href="">童车</a><a href="">安全玩具</a></li>
+        <li>美妆个护 ><a href="">洁面卸妆</a><a href="">护肤品</a><a href="">面膜</a><a href="">彩妆香水</a><a href="">洗发护发/套装沐浴</a><a href="">洗手液</a><a href="">牙膏</a><a href="">牙刷</a><a href="">漱口水</a><a href="">卫生纸</a></li>
+        <li>家居清洁 ><a href="">餐具</a><a href="">水具</a><a href="">锅具</a><a href="">刀具</a><a href="">乳胶枕</a><a href="">口罩</a><a href="">鲜花</a><a href="">宠物用品</a><a href="">清洁剂</a><a href="">纸巾</a></li>
+        <li>营养保健 ><a href="">蜂蜜</a><a href="">维生素</a><a href="">葡萄籽</a><a href="">蔓越莓</a><a href="">螺旋藻</a><a href="">酵素</a><a href="">蛋白粉</a><a href="">胶原蛋白</a><a href="">鱼油</a><a href="">高丽参</a><a href="">护肝片</a><a href="">月见草油</a></li>
+        <li>数码家电 ><a href="">镜头</a><a href="">耳机耳麦</a><a href="">生活电器</a></li>
+    </ul>
+    <div id="pic">
+        <a href=""><img src="image/tupian.png" alt=""></a>
+    </div>
+    </div>
+    <div id="user">
+        <p><i class="iconfont icon-1haodianeps"></i></p>
+        <p id='hello'>Hi~你好！</p>
+        <div id="logreg">
+            <a href="login.html">登录</a>
+            <a href="reg.html">注册</a>
+        </div>
+        <ul>
+            <li><i class="iconfont icon-huangguan"></i><a href="">金币商城</a></li>
+            <li><i class="iconfont icon-shiyong1"></i><a href="">0元试用</a></li>
+            <li><i class="iconfont icon-shoujichongzhi"></i><a href="">手机充值</a></li>
+        </ul>
+        <ul>
+            <li><a href="">【公告】仓库搬迁公告</a></li>
+            <li><a href="">【优选】戳！奶粉最高立减110</a></li>
+            <li><a href="">【促销】华为新品有奖预售</a></li>
+            <li><a href="">【更多】机械革命下单立减600</a></li>
+        </ul>
+    </div>
+</div>
+<div id="qianggou">
+    <section>
+        <div>
+            <span>1号抢购</span>
+            <span>本场剩余</span>
+            <span id="clock">
+                <b>08</b>:
+                <b>00</b>:
+                <b>00</b>
+            </span>
+            <span>查看更多 ></span>
+        </div>
+        <div>
+            <a href=""><p>已售94%</p>
+                <dl>
+                    <dt>
+                        <span>14度法国进口拉撒菲尔泽延干红</span>
+                        <span>￥238</span>
+                        <span>参考价：￥899</span>
+                    </dt>
+                    <dd><img src="image/one.webp" alt=""></dd>
+                </dl>
+            </a>
+        </div>
+        <div>
+            <a href=""><p>已售79%</p>
+                <dl>
+                <dt>
+                    <span>金碧波阳澄湖大闸蟹礼券 588型</span>
+                    <span>￥128</span>
+                    <span>参考价：￥588</span>
+                </dt>
+                <dd><img src="image/two.webp" alt=""></dd>
+                </dl>
+            </a>
+        </div>
+        <div>
+            <a href=""><p>已售64%</p>
+                <dl>
+                    <dt>
+                        <span>怡宝 饮用纯净水 量贩装</span>
+                        <span>￥9.9</span>
+                        <span>参考价：￥15</span>
+                    </dt>
+                    <dd><img src="image/three.webp" alt=""></dd>
+                </dl>
+            </a>
+        </div>
+        <div>
+            <a href=""><p>今日推荐</p>
+                <dl>
+                <dt>
+                    <span>Cavendish&Harv嘉云糖 什锦糖</span>
+                    <span>￥9.9</span>
+                    <span>参考价：￥28.8</span>
+                </dt>
+                <dd><img src="image/four.webp" alt=""></dd>
+                </dl>
+            </a>
+        </div>
+    </section>
+</div>
+<div id="paihangbang">
+    <section>
+        <div>
+            <a href=""><img src="image/5.webp" alt=""></a>
+            <p>
+                <span>品牌特卖</span>
+                <span></span>
+                <span>每天10:00上新!</span>
+            </p>
+        </div>
+        <div>
+            <span class="dian"></span>
+            <span class="dian"></span>
+            <p class="change"><span><i class="iconfont icon-tuangou"></i>团购</span></p>
+            <dl>
+                <dt>
+                    <a href=""><img src="image/6.webp" alt=""></a>
+                </dt>
+                <dd>
+                    <a href="">
+                        <span>1号·量贩团</span>
+                        <span>清扬买2得4</span>
+                        <img src="image/8.webp" alt="">
+                    </a>
+                </dd>
+                <dd>
+                    <a href="">
+                        <span>1号·品牌团</span>
+                        <span>流心奶黄新上市</span>
+                        <img src="image/9.webp" alt="">
+                    </a>
+                </dd>
+            </dl>
+        </div>
+        <div id='rank'>
+            <span class="dian"></span>
+            <span class="dian"></span>
+            <p class="change"><span style="font-size: 15px"><i class="iconfont icon-diyi"></i>排行榜</span></p>
+            <ul id='selected'>
+                <li>面部护肤</li>
+                <li>清洁洗护</li>
+                <li>尿裤/湿布</li>
+                <li>饼干/糕点</li>
+                <li>女装</li>
+            </ul>
+            <p v-for="(item,index) in resource" class="xianshi">
+            	<a href="" v-for="(item,index) in item">
+                    <img v-bind:src="item.src" alt="">
+                    <span>{{item.tittle}}</span>
+                </a>
+            </p>
+        </div>
+    </section>
+</div>
+
+<!--专属活动-->
+<div id='only'>
+	<p><i class="iconfont icon-zhuanshu"></i>我的专属活动</p>
+	<section>
+		<ul id='slide'>
+			<a href="">
+		    <li v-for="(item,index) in arr ">
+			    <img v-bind:src="item.src" alt="" />
+			    <span >{{item.title}}</span>
+			    <span class='special'>{{item.sale}}</span>
+		    </li>
+			</a>
+	    </ul>
+	</section>
+	<i class="iconfont icon-jiantou-copy only_left only"></i>
+	<i class="iconfont icon-jiantou-copy only_right only"></i>
+	<span class="only_dian"></span>
+    <span class="only_dian"></span>
+</div>
+
+<!--全球进口-->
+<div id="global">
+	<p>全球进口<span><i class="iconfont icon-jiantou-copy"></i></span></p>
+	<section>
+		<div class="global_sec_left">
+			<img src="image/21.webp"/>
+			<ul>
+				<span>进口食品<i class="iconfont icon-jiantou-copy"></i></span>
+				<span>FOOD</span>
+				<li>进口饼干</li>
+				<li>进口坚果</li>
+				<li>进口水饮</li>
+				<li>进口食用油</li>
+				<li>进口调料</li>
+				<li>进口方便面</li>
+			</ul>
+		</div>
+		<div class="global_sec_right">
+			<div class="bigger"><img src="image/22.webp"/></div>
+			<dl class="bigger">
+				<dt><span>进口酒会所</span><span>中外名酒</span></dt>
+				<dd><img src="image/23.webp"/></dd>
+			</dl>
+			<dl class="bigger">
+				<dt><span>进口零食精选</span><span>1元限量抢</span></dt>
+				<dd><img src="image/24.webp"/></dd>
+			</dl>
+		</div>
+	</section>
+	<aside id='sort'>
+		<div v-for="(item,index) in arr" :style='{backgroundColor:item.bg}'>
+			<span :style='{color:item.color}'>{{item.title}}</span>
+			<span>{{item.sort}}</span>
+			<span :style='{border:"2px solid"+item.color}'></span>
+			<img :src="item.src"/>
+		</div>
+	</aside>
+</div>
+
+<!--中间的一条黄色广告条-->
+<div id="adverter">
+	<a href=""><img src="image/yellow.png"/></a>
+</div>
+<!--国产产品部分-->
+<div id='china'>
+	<aside>
+		<div>国产食品<i class="iconfont icon-jiantou-copy"></i></div>
+		<div></div>
+		<div>NATIONAL FOOD</div>
+		<ul class='transform'>
+			<li><p>1号粮仓  民生汇聚</p><p>精选粮油 1元起</p><img src="image/31.webp" alt="" /></li>
+			<li><p>厨卫帮手  美味甄选</p><p>2件88折</p><img src="image/32.webp" alt="" /></li>
+			<li><p>浓情中秋 礼献月饼</p><p>9元起</p><img src="image/33.webp" alt="" /></li>
+		</ul>
+		<p class='anniu'><span class="button1"><</span>&nbsp;&nbsp;<span id=number>1</span>/3&nbsp;&nbsp;<span class="button1"`>></span></p>
+		<div class='gundong'><i class="iconfont icon-pinglun1"></i><span>|</span>
+			<ul id="gun">
+				<li>记录美好时光</li>
+				<li>爱宠脱毛不用愁</li>
+				<li>半熟男风缔造都市型男</li>
+			</ul>
+		</div>
+	</aside>
+	<section>
+		<ul>
+			<li>坚果零食</li><span>|</span>
+			<li>饼干糕点</li><span>|</span>
+			<li>厨房调料</li><span>|</span>
+			<li>粮油米面</li><span>|</span>
+			<li>方便速食</li><span>|</span>
+			<li>糖果布丁</li><span>|</span>
+			<li>牛肉干</li><span>|</span>
+			<li>红枣</li>
+		</ul>
+		<div class='china'><span>浓情中秋</span><span>9元起 299减155</span><img src="image/34.webp" alt="" /></div>
+		<div class='china'><span>中秋有你月更圆</span><span>换购9.9元起</span><img src="image/35.webp" alt="" /></div>
+		<div class='china'><span>精品礼盒3免1</span><span>月饼1元起</span><img src="image/36.webp" alt="" /></div>
+		<div class='china'><span>1号厨房 厨味甄选</span><span>2件88折</span><img src="image/37.webp" alt="" /></div>
+		<div class='china'><span>礼遇中秋 健康有礼</span><span>礼遇中秋 健康有</span><img src="image/38.webp" alt="" /></div>
+		<div class="logs">
+			<img src="image/39.webp" alt="" />
+			<img src="image/40.webp" alt="" />
+			<img src="image/41.webp" alt="" />
+			<img src="image/42.webp" alt="" />
+			<img src="image/43.webp" alt="" />
+			<img src="image/44.webp" alt="" />
+		</div>
+	</section>
+</div>
+
+<!--两块的分区-->
+<div id='liangkuai'>
+	<section>
+		<div>1号生鲜<i class="iconfont icon-jiantou-copy"></i>
+			<span>海鲜水产</span>|
+			<span>品质肉类</span>|
+			<span>冰淇淋</span>|
+			<span>新鲜水果</span>
+		</div>
+		<ul class='ul'>
+			<p>
+				<span>月饼礼券</span>
+				<span>爆品直降</span>
+				<ul class='lk_slide'><li></li><li></li><li></li></ul>
+				<ul class='lk_pic'>
+					<li><img src="image/45.webp" alt="" /></li>
+					<li><img src="image/46.webp" alt="" /></li>
+					<li><img src="image/47.webp" alt="" /></li>
+				</ul>
+			</p>
+		</ul>
+		<ul class="ul">
+			<li>
+				<span>9月石榴季</span>
+				<span>低至9.9</span>
+				<a><img src="image/48.webp" alt="" /></a>
+			</li>
+			<li>
+				<span>时令鲜果</span>
+				<span>为你索罗全球美</span>
+				<a><img src="image/49.webp" alt="" /></a>
+			</li>
+			<li>
+				<span>食以肉为鲜</span>
+				<span>1元秒</span>
+				<a><img src="image/50.webp" alt="" /></a>
+			</li>
+			<li>
+				<span>鲜爽一夏</span>
+				<span>带皮吃的苹果</span>
+				<a><img src="image/51.jpg" alt="" /></a>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<div>酒水饮料<i class="iconfont icon-jiantou-copy"></i>
+			<span>白酒</span>|
+			<span>饮料饮品</span>|
+			<span>饮用水</span>|
+			<span>速溶咖啡</span>
+		</div>
+		<ul class='ul'>
+			<p>
+				<span>冲饮咖啡</span>
+				<span>早餐更多选择</span>
+				<ul class='lk_slide'><li></li><li></li><li></li></ul>
+				<ul class='lk_pic'>
+					<li><img src="image/52.webp" alt="" /></li>
+					<li><img src="image/53.webp" alt="" /></li>
+					<li><img src="image/54.webp" alt="" /></li>
+				</ul>
+			</p>
+		</ul>
+		<ul class="ul">
+			<li>
+				<span>饮料中心</span>
+				<span>68元无限重包邮</span>
+				<a><img src="image/55.webp" alt="" /></a>
+			</li>
+			<li>
+				<span>中外名酒</span>
+				<span>畅饮好酒</span>
+				<a><img src="image/56.webp" alt="" /></a>
+			</li>
+			<li>
+				<span>牛奶酸奶</span>
+				<span>大牌精选</span>
+				<a><img src="image/57.webp" alt="" /></a>
+			</li>
+			<li>
+				<img src="image/58.webp" alt="" />
+				<img src="image/59.webp" alt="" />
+				<img src="image/60.webp" alt="" />
+			</li>
+		</ul>
+	</section>
+</div>
+
+<!--滚动事件之后产生的搜索框-->
+<div id='nav'>
+	<a href="#"><img src="image/yihaodian.jpg"/></a>
+	<input type="text" placeholder="开奶季奶粉最高可减110"><span><i class="iconfont icon-search2"></i></span>
+</div>
+<!--右边的导航栏-->
+<div id="daohang">
+    <ul>
+        <li><i class="iconfont icon-tubiao211"></i><p><a href="">用户中心</a></p></li>
+        <li><i class="iconfont icon-gouwuchekong"></i><span><a href="">购物车</a></span></li>
+        <li><i class="iconfont icon-3"></i><p><a href="">抵用券<</a>/p></li>
+        <li><i class="iconfont icon-shoucangjia"></i><p><a href="">我的收藏</a></p></li>
+        <li><i class="iconfont icon-fankui"></i><p><a href="">用户反馈</a></p></li>
+        <li><i class="iconfont icon-erweima1"></i><p><a href="">二维码</a></p></li>
+        <li><i class="iconfont icon-dingbu"></i><p><a href="">返回顶部</a></p></li>
+    </ul>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
